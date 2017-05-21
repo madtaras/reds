@@ -6,7 +6,9 @@ import {
 } from '../actions/';
 import parser from '../helpers/parser/';
 
-export const calculateProgress = (textState) => {
+export const calculateProgress = (state) => {
+  const textState = state.text;
+
   if (!textState.past.length) return 0;
   if (!textState.future.length) return 100;
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import {
@@ -15,7 +15,7 @@ const TextInput = styled.TextInput`
   padding: 10;
 `;
 
-class InputPanel extends Component {
+class InputPanel extends PureComponent {
   onSelectionChange(event, textSelected) {
     const selection = event.nativeEvent.selection;
     if (!this.text) return;

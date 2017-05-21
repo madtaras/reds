@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
 } from 'react-native';
@@ -22,7 +22,7 @@ const TextWrapper = styled.Text`
   marginTop: -10;
 `;
 
-export default class Header extends Component {
+export default class Header extends PureComponent {
   render() {
     return (
       <View>

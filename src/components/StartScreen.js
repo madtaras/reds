@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import {
   View,
@@ -8,7 +8,7 @@ import InputPanel from './InputPanel';
 import StartScreenControlPanel from './StartScreenControlPanel';
 import DismissKeyboardView from './DismissKeyboardView';
 
-class StartScreen extends Component {
+class StartScreen extends PureComponent {
   render() {
     return (
       <DismissKeyboardView>

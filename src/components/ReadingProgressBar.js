@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import { calculateProgress } from '../reducers/text';
@@ -17,7 +17,7 @@ const Progress = styled.View`
   width: ${props => `${props.progress}%`};
 `;
 
-class ReadingProgressBar extends Component {
+class ReadingProgressBar extends PureComponent {
   render() {
     const { progress } = this.props;
 
@@ -31,6 +31,6 @@ class ReadingProgressBar extends Component {
 
 export default connect(
   state => ({
-    progress: calculateProgress(state.text),
+    progress: calculateProgress(state),
   }),
 )(ReadingProgressBar);
