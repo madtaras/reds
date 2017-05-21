@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { pause } from '../actions/';
 
 const PanelWrapper = styled.View`
   height: 120;
@@ -25,7 +25,7 @@ const ButtonsWrapper = styled.View`
   alignItems: center;
 `;
 
-const Button = styled.View`
+const Button = styled.TouchableHighlight`
   height: 70;
   width: 70;
   alignItems: center;
@@ -40,7 +40,10 @@ const ButtonIcon = styled(Icon)`
 
 class ControlPanel extends Component {
   render() {
-    const { speed } = this.props;
+    const {
+      speed,
+      pause,
+    } = this.props;
     return (
       <PanelWrapper>
         <WpmWrapper>
@@ -52,11 +55,9 @@ class ControlPanel extends Component {
           <Button>
             <ButtonIcon name="remove" />
           </Button>
-          <Link to="/">
-            <Button>
-              <ButtonIcon name="pause" />
-            </Button>
-          </Link>
+          <Button onPress={pause}>
+            <ButtonIcon name="pause" />
+          </Button>
           <Button>
             <ButtonIcon name="add" />
           </Button>
@@ -70,4 +71,7 @@ export default connect(
   state => ({
     speed: state.speed,
   }),
+  {
+    pause,
+  },
 )(ControlPanel);

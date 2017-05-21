@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import {
-  View,
-} from 'react-native';
-import { NativeRouter, Route } from 'react-router-native';
-import StartScreen from './StartScreen';
-import ReadingScreen from './ReadingScreen';
 import { tick } from '../actions/';
+import App from './App';
 
 // Set up store
 import reducer from '../reducers/index';
@@ -38,14 +33,7 @@ export default class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <View>
-          <NativeRouter>
-            <View>
-              <Route exact path="/" component={StartScreen} />
-              <Route path="/reading" component={ReadingScreen} />
-            </View>
-          </NativeRouter>
-        </View>
+        <App />
       </Provider>
     );
   }

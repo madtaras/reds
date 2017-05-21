@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { textChanged } from '../actions/';
 import styled from 'styled-components/native';
 
 const Panel = styled.View`
@@ -10,17 +12,23 @@ const TextInput = styled.TextInput`
   padding: 10;
 `;
 
-export default class InputPanel extends Component {
+class InputPanel extends Component {
   render() {
+    const { textChanged } = this.props;
     return (
       <Panel>
         <TextInput
           multiline
           numberOfLines={4}
-          onChangeText={text => console.log(text)}
+          onChangeText={text => textChanged(text)}
           placeholder={'Enter your text here'}
         />
       </Panel>
     );
   }
 }
+
+export default connect(
+  null,
+  { textChanged },
+)(InputPanel);

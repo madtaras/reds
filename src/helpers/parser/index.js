@@ -1,5 +1,4 @@
 const parser = (function(app) {
-	
 	function splitWordIfNeeded(str) {
 		var dashIndex = str.indexOf("-"), slashIndex = str.indexOf("/"), uscoreIndex = str.indexOf("_");
 		if (str.length > 13 || str.length > 9 && (dashIndex > -1 || uscoreIndex > -1 || slashIndex > -1)) {
@@ -741,6 +740,8 @@ const parser = (function(app) {
 	
 	
 	// http://forums.mozillazine.org/viewtopic.php?f=25&t=834075
+
+	return app;
 })({});
 
 export default parser;

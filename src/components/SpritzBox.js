@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 
 const Wrapper = styled.View`
@@ -26,16 +27,26 @@ const Word = styled.Text`
   marginBottom: 5;
 `;
 
-export default class SpritzBox extends Component {
+class SpritzBox extends Component {
   render() {
+    const { currentWord } = this.props;
+
     return (
       <Wrapper>
         <FocusDashes />
         <WordWrapper>
-          <Word>hello</Word>
+          <Word>
+            {currentWord.toString()}
+          </Word>
         </WordWrapper>
         <FocusDashes />
       </Wrapper>
     );
   }
 }
+
+export default connect(
+  state => ({
+    currentWord: state.text.current,
+  }),
+)(SpritzBox);

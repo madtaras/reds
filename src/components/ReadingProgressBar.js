@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components/native';
+import { calculateProgress } from '../reducers/text';
 
 const PROGRESS_HEIGHT = 5;
 
@@ -15,7 +17,7 @@ const Progress = styled.View`
   width: ${props => `${props.progress}%`};
 `;
 
-export default class ReadingProgressBar extends Component {
+class ReadingProgressBar extends Component {
   render() {
     const { progress } = this.props;
 
@@ -26,3 +28,9 @@ export default class ReadingProgressBar extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({
+    progress: calculateProgress(state.text),
+  }),
+)(ReadingProgressBar);
