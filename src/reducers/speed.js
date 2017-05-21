@@ -5,8 +5,8 @@ import {
 } from '../actions/';
 
 const speed = createReducer({
-  [increaseSpeed]: state => state + 50,
-  [decreaseSpeed]: state => state - 50,
+  [increaseSpeed]: state => (state < 1200 ? state + 50 : state),
+  [decreaseSpeed]: state => (state > 200 ? state - 50 : state),
 }, 400);
 
 export default speed;

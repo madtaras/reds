@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { start } from '../actions/';
+import {
+  start,
+  increaseSpeed,
+  decreaseSpeed,
+} from '../actions/';
 
 const PanelWrapper = styled.View`
   height: 120;
@@ -43,6 +47,8 @@ class ControlPanel extends Component {
     const {
       speed,
       start,
+      increaseSpeed,
+      decreaseSpeed,
     } = this.props;
     return (
       <PanelWrapper>
@@ -52,13 +58,13 @@ class ControlPanel extends Component {
           </WpmText>
         </WpmWrapper>
         <ButtonsWrapper>
-          <Button>
+          <Button onPress={decreaseSpeed} underlayColor={'transparent'}>
             <ButtonIcon name="remove" />
           </Button>
           <Button onPress={start}>
             <ButtonIcon name="play-arrow" />
           </Button>
-          <Button>
+          <Button onPress={increaseSpeed} underlayColor={'transparent'}>
             <ButtonIcon name="add" />
           </Button>
         </ButtonsWrapper>
@@ -73,5 +79,7 @@ export default connect(
   }),
   {
     start,
+    decreaseSpeed,
+    increaseSpeed,
   },
 )(ControlPanel);
