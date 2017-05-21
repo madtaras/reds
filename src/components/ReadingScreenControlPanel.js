@@ -40,11 +40,12 @@ const ButtonIcon = styled(Icon)`
 
 class ControlPanel extends Component {
   render() {
+    const { speed } = this.props;
     return (
       <PanelWrapper>
         <WpmWrapper>
           <WpmText>
-            250 wpm
+            {speed} wpm
           </WpmText>
         </WpmWrapper>
         <ButtonsWrapper>
