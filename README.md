@@ -1,4 +1,10 @@
-# reds
+# Reds
+
+## Spritz reader for iOS and Android
+
+Start screen             |  Reading screen
+:-------------------------:|:-------------------------:
+![](./screenshots/screenshot1.png)  |  ![](./screenshots/screenshot2.png)
 
 ## How to run  
 Requires react-native-cli, yarn  
