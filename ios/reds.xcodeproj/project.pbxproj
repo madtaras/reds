@@ -1301,7 +1301,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "b7d8f511-e71a-41b4-a92f-9a161d57e418";
+				SDKROOT = iphoneos10.3;
 			};
 			name = Debug;
 		};
@@ -1340,7 +1341,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "b7d8f511-e71a-41b4-a92f-9a161d57e418";
+				SDKROOT = iphoneos10.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
