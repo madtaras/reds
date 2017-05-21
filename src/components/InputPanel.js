@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { textChanged } from '../actions/';
 
 const Panel = styled.View`
-  height: 200;
+  height: 167;
 `;
 
 const TextInput = styled.TextInput`

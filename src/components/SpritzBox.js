@@ -7,6 +7,8 @@ const Wrapper = styled.View`
   borderBottomWidth: 3;
   borderStyle: solid;
   borderColor: #212121;
+  marginBottom: 60;
+  marginTop: 60;
 `;
 
 const FocusDashes = styled.View`
