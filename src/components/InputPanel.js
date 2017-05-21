@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
-import { textChanged } from '../actions/';
+import {
+  textChanged,
+  textSelected,
+} from '../actions/';
 
 const Panel = styled.View`
   height: 167;
@@ -13,9 +16,26 @@ const TextInput = styled.TextInput`
 `;
 
 class InputPanel extends Component {
+  onSelectionChange(event, textSelected) {
+    const selection = event.nativeEvent.selection;
+    if (!this.text) return;
+    const text = this.text.slice(selection.start, selection.end);
+    if (!text) return;
+
+    textSelected(text);
+  }
+
+  onTextChange(text, textChanged) {
+    if (!text) return;
+
+    this.text = text;
+    textChanged(text);
+  }
+
   render() {
     const {
       textChanged,
+      textSelected,
       rawText,
     } = this.props;
     return (
@@ -23,7 +43,8 @@ class InputPanel extends Component {
         <TextInput
           multiline
           numberOfLines={4}
-          onChangeText={text => textChanged(text)}
+          onChangeText={event => this.onTextChange(event, textChanged)}
+          onSelectionChange={text => this.onSelectionChange(text, textSelected)}
           text={rawText}
           placeholder={'Enter your text here'}
         />
@@ -36,5 +57,8 @@ export default connect(
   state => ({
     rawText: state.rawText,
   }),
-  { textChanged },
+  {
+    textChanged,
+    textSelected,
+  },
 )(InputPanel);

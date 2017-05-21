@@ -2,6 +2,7 @@ import { createReducer } from 'redux-act';
 import {
   textChanged,
   tick,
+  textSelected,
 } from '../actions/';
 import parser from '../helpers/parser/';
 
@@ -39,9 +40,15 @@ const proccessRawText = (state, rawText) => {
   };
 };
 
+const translate = (state, selectedText) => {
+  // TODO: implement translation
+  return state;
+};
+
 const text = createReducer({
   [textChanged]: proccessRawText,
   [tick]: updateWord,
+  [textSelected]: translate,
 }, defaultState);
 
 export default text;
