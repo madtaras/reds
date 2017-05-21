@@ -724,16 +724,16 @@ const parser = (function(app) {
 		else if (len < 10) point = 2;
 		else if (len < 14) point = 3;
 		
-		char = str[point];
+		// char = str[point];
 		
-		if (!(isLetter(char) || isDigits(char))) {
-			if ((char = str[point-1]) && (isLetter(char) || isDigits(char))) {
-				point--;
-			}
-			else if ((char = str[point+1]) && (isLetter(char) || isDigits(char))) {
-				point++;
-			}
-		}
+		// if (!(isLetter(char) || isDigits(char))) {
+		// 	if ((char = str[point-1]) && (isLetter(char) || isDigits(char))) {
+		// 		point--;
+		// 	}
+		// 	else if ((char = str[point+1]) && (isLetter(char) || isDigits(char))) {
+		// 		point++;
+		// 	}
+		// }
 		
 		return point;
 	}

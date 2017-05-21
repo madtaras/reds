@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Text } from 'react-native';
 import styled from 'styled-components/native';
+import parser from '../helpers/parser/';
 
 const Wrapper = styled.View`
   borderTopWidth: 3;
@@ -24,12 +26,28 @@ const WordWrapper = styled.View`
 
 const Word = styled.Text`
   fontSize: 36;
-  marginLeft: -30;
+  marginLeft: ${props => props.marginLeft};
   marginTop: 5;
   marginBottom: 5;
 `;
 
 class SpritzBox extends Component {
+  highlight(word) {
+    const pivotPoint = parser.calcPivotPoint(word);
+
+    return (
+      <Text>
+        {word.slice(0, pivotPoint)}
+        <Text style={{ color: 'red' }}>{word[pivotPoint]}</Text>
+        {word.slice(pivotPoint + 1)}
+      </Text>
+    );
+  }
+
+  calcMarginLeft(word) {
+    return parser.calcPivotPoint(word) * (-20);
+  }
+
   render() {
     const { currentWord } = this.props;
 
@@ -37,8 +55,8 @@ class SpritzBox extends Component {
       <Wrapper>
         <FocusDashes />
         <WordWrapper>
-          <Word>
-            {currentWord.toString()}
+          <Word marginLeft={this.calcMarginLeft(currentWord.toString())}>
+            {this.highlight(currentWord.toString())}
           </Word>
         </WordWrapper>
         <FocusDashes />
