@@ -1,6 +1,7 @@
-import Root from './src/components/Root'
 import {
-  AppRegistry
+  AppRegistry,
 } from 'react-native';
+import Root from './src/components/Root';
+
 
 AppRegistry.registerComponent('reds', () => Root);
