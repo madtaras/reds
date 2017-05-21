@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
@@ -31,7 +31,7 @@ const Word = styled.Text`
   marginBottom: 5;
 `;
 
-class SpritzBox extends PureComponent {
+class SpritzBox extends Component {
   highlight(word) {
     const pivotPoint = parser.calcPivotPoint(word);
 

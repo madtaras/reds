@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { tick } from '../actions/';
@@ -29,7 +29,7 @@ store.subscribe(() => {
   }
 });
 
-export default class Root extends PureComponent {
+export default class Root extends Component {
   render() {
     return (
       <Provider store={store}>

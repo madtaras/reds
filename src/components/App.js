@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   View,
@@ -11,7 +11,7 @@ import {
 import StartScreen from './StartScreen';
 import ReadingScreen from './ReadingScreen';
 
-class App extends PureComponent {
+class App extends Component {
   render() {
     const { isReading } = this.props;
 

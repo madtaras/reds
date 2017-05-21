@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   View,
@@ -9,7 +9,7 @@ import ReadingProgressBar from './ReadingProgressBar';
 import ReadingScreenControlPanel from './ReadingScreenControlPanel';
 import DismissKeyboardView from './DismissKeyboardView';
 
-class ReadingScreen extends PureComponent {
+class ReadingScreen extends Component {
   render() {
     return (
       <DismissKeyboardView>

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -42,7 +42,7 @@ const ButtonIcon = styled(Icon)`
   fontSize: 30;
 `;
 
-class ControlPanel extends PureComponent {
+class ControlPanel extends Component {
   render() {
     const {
       speed,
