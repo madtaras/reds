@@ -1,0 +1,2 @@
+Reds app uses Parser module from https://github.com/olegcherr/Reedy-for-Chrome
+No changes made to it.
