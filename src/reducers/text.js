@@ -42,8 +42,28 @@ const proccessRawText = (state, rawText) => {
   };
 };
 
+let lastSelected = '';
 const translate = (state, selectedText) => {
-  // TODO: implement translation
+  if (selectedText !== lastSelected) {
+    fetch('http://www.transltr.org/api/translate', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: selectedText,
+        to: 'uk',
+        from: 'en',
+      }),
+    }).then(response => response.json())
+      .then((responseJson) => {
+        alert(`${selectedText} == ${responseJson.translationText}`);
+      })
+      .catch((error) => {
+        console.dir(error);
+      });
+  }
   return state;
 };
 
